@@ -2,16 +2,23 @@ package com.vineeth.aviationcore.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
 public class TripDetails {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int tripId;
-	@OneToMany(targetEntity = Passengers.class)
+
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Passengers> passengers;
+
 	private String terminal;
 	private String gateNumber;
 	private String flightNumber;

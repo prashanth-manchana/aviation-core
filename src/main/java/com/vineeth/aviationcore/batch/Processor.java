@@ -12,7 +12,7 @@ public class Processor implements ItemProcessor<TripDetails, TripDetails> {
 	public TripDetails process(TripDetails item) throws Exception {
 		System.out.println("Processor process");
 		System.out.println("Processor" + item.toString());
-		return null;
+		return item;
 	}
 
 }

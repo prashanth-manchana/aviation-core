@@ -2,16 +2,25 @@ package com.vineeth.aviationcore.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Passengers {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int passengerId;
+
 	private String passengerRefId;
+
 	private String metaData;
-	@OneToMany(targetEntity = FlightPassengerSegment.class)
+
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<FlightPassengerSegment> flightPassengerSegment;
 
 	public String getPassengerRefId() {

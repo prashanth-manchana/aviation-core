@@ -22,9 +22,6 @@ import com.vineeth.aviationcore.model.TripDetails;
 @EnableBatchProcessing
 public class SpringBatchConfig {
 
-	/*
-	 * @Value(value = "${files.inbox.location}") private Resource[] resources;
-	 */
 	@Bean
 	public Job job(JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory,
 			ItemReader<TripDetails> itemReader, ItemProcessor<TripDetails, TripDetails> itemProcessor,
@@ -37,23 +34,9 @@ public class SpringBatchConfig {
 
 	@Bean
 	public JsonItemReader<TripDetails> jsonItemReader() {
-		return new JsonItemReaderBuilder<TripDetails>().jsonObjectReader(new JacksonJsonObjectReader<>(TripDetails.class))
+		return new JsonItemReaderBuilder<TripDetails>()
+				.jsonObjectReader(new JacksonJsonObjectReader<>(TripDetails.class))
 				.resource(new ClassPathResource("sample.json")).name("sampleJsonItemReader").build();
 	}
 
-	/*
-	 * @Bean public JsonItemReader<TripDetails> jsonItemReader(Resource[] resources)
-	 * { JsonItemReader<TripDetails> delegate = new
-	 * JsonItemReaderBuilder<TripDetails>() .jsonObjectReader(new
-	 * JacksonJsonObjectReader<>(TripDetails.class)).name("tripDetailsItemReader")
-	 * .build();
-	 * 
-	 * MultiResourceItemReader<TripDetails> reader = new
-	 * MultiResourceItemReader<>(); ClassLoader cl =
-	 * this.getClass().getClassLoader(); ResourcePatternResolver resolver = new
-	 * PathMatchingResourcePatternResolver(cl);
-	 * 
-	 * reader.setResources(resources); reader.setDelegate(delegate); return reader;
-	 * }
-	 */
 }

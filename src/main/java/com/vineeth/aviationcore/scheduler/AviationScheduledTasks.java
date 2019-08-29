@@ -15,9 +15,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @Component
 @EnableBatchProcessing
+@RestController
+@RequestMapping(path = "/aviation")
 public class AviationScheduledTasks {
 
 	@Value("${customer.file.name}")
@@ -29,11 +34,12 @@ public class AviationScheduledTasks {
 	@Autowired
 	Job job;
 
-	@Scheduled(fixedDelay = 10, initialDelay = 1000)
+	@Scheduled(cron = "${batch.cron}")
+	@GetMapping(value = "/load_data")
 	public void getCustomerDetails() throws IOException, JobExecutionAlreadyRunningException, JobRestartException,
 			JobInstanceAlreadyCompleteException, JobParametersInvalidException {
 		System.out.println("Job Executing");
-		JobParameters params = new JobParametersBuilder().addString("JobID", String.valueOf(System.currentTimeMillis()))
+		JobParameters params = new JobParametersBuilder().addString("filename","filename").addString("JobID", String.valueOf(System.currentTimeMillis()))
 				.toJobParameters();
 		jobLauncher.run(job, params);
 

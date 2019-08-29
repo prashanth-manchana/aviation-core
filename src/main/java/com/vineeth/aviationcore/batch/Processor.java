@@ -12,7 +12,17 @@ public class Processor implements ItemProcessor<TripDetails, TripDetails> {
 	public TripDetails process(TripDetails item) throws Exception {
 		System.out.println("Processor process");
 		System.out.println("Processor" + item.toString());
+		manipulateData(item);
+//		throwExceptionBlock();
 		return item;
+	}
+
+	private void manipulateData(TripDetails item) {
+		item.setFlightNumber(item.getFlightNumber().concat("65432"));
+	}
+
+	private void throwExceptionBlock() {
+		throw new RuntimeException();
 	}
 
 }

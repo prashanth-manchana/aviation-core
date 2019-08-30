@@ -27,7 +27,10 @@ public class SpringBatchConfig {
 			ItemReader<TripDetails> itemReader, ItemProcessor<TripDetails, TripDetails> itemProcessor,
 			ItemWriter<TripDetails> itemWriter) {
 
-		Step step = stepBuilderFactory.get("json-file-load").<TripDetails, TripDetails>chunk(100).reader(itemReader)
+		Step step = stepBuilderFactory.get("json-file-load").<TripDetails, TripDetails>chunk(1).faultTolerant()
+				.skip(RuntimeException.class)
+				.skipLimit(20)
+				.reader(itemReader)
 				.processor(itemProcessor).writer(itemWriter).build();
 		return jobBuilderFactory.get("json-load").incrementer(new RunIdIncrementer()).start(step).build();
 	}

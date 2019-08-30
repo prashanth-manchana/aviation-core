@@ -22,7 +22,7 @@ public class DBWriter implements ItemWriter<TripDetails> {
 	
 	@Autowired
 	ParametersRepository paramsRepo;
-
+	
 	@Value("#{jobParameters['filename']}")
 	private String fileName;
 

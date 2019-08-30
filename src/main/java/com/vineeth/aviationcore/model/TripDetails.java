@@ -1,14 +1,9 @@
 package com.vineeth.aviationcore.model;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class TripDetails {
@@ -16,21 +11,10 @@ public class TripDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int tripId;
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Passengers> passengers;
-
 	private String terminal;
 	private String gateNumber;
 	private String flightNumber;
 	private String carrierCode;
-
-	public List<Passengers> getPassengers() {
-		return passengers;
-	}
-
-	public void setPassengerDetailsTO(List<Passengers> passengers) {
-		this.passengers = passengers;
-	}
 
 	public String getTerminal() {
 		return terminal;
@@ -62,13 +46,6 @@ public class TripDetails {
 
 	public void setCarrierCode(String carrierCode) {
 		this.carrierCode = carrierCode;
-	}
-
-	@Override
-	public String toString() {
-		return "TripDetails [tripId=" + tripId + ", passengers=" + passengers + ", terminal=" + terminal
-				+ ", gateNumber=" + gateNumber + ", flightNumber=" + flightNumber + ", carrierCode=" + carrierCode
-				+ "]";
 	}
 
 }

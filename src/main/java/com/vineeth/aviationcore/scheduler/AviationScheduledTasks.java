@@ -38,6 +38,7 @@ public class AviationScheduledTasks {
 	@GetMapping(value = "/load_data")
 	public void getCustomerDetails() throws IOException, JobExecutionAlreadyRunningException, JobRestartException,
 			JobInstanceAlreadyCompleteException, JobParametersInvalidException {
+		
 		System.out.println("Job Executing");
 		JobParameters params = new JobParametersBuilder().addString("filename","sample.json").addString("JobID", String.valueOf(System.currentTimeMillis()))
 				.toJobParameters();

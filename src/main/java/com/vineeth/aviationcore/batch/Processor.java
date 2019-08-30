@@ -1,30 +1,29 @@
 package com.vineeth.aviationcore.batch;
 
+import java.util.List;
+
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.stereotype.Component;
 
+import com.vineeth.aviationcore.model.FlightPassengerSegment;
 import com.vineeth.aviationcore.model.Passengers;
-import com.vineeth.aviationcore.model.TripDetails;
 
 @Component
-public class Processor implements ItemProcessor<TripDetails, TripDetails> {
+public class Processor implements ItemProcessor<Passengers, Passengers> {
 
 	@Override
-	public TripDetails process(TripDetails item) throws Exception {
-		System.out.println("Processor process");
-		System.out.println("Processor" + item.toString());
-		manipulateData(item);
+	public Passengers process(Passengers passengers) throws Exception {
+		System.out.println("Processor" + passengers.toString());
+		manipulateData(passengers);
 //		throwExceptionBlock();
-		return item;
+		return passengers;
 	}
 
-	private void manipulateData(TripDetails item) {
-		item.setFlightNumber(item.getFlightNumber().concat("65432"));
-
-		for (Passengers passenger : item.getPassengers()) {
-			passenger.getFlightPassengerSegment().get(0).getCarrierCode().concat("1234");
+	private void manipulateData(Passengers passengers) {
+		List<FlightPassengerSegment> segments = passengers.getFlightPassengerSegment();
+		for (FlightPassengerSegment flightPassengerSegment : segments) {
+			flightPassengerSegment.getFlightNumber().concat("1245");
 		}
-
 	}
 
 	private void throwExceptionBlock() {

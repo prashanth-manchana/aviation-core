@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 
-import com.vineeth.aviationcore.model.TripDetails;
+import com.vineeth.aviationcore.model.Passengers;
 
 @Configuration
 @EnableBatchProcessing
@@ -24,10 +24,10 @@ public class SpringBatchConfig {
 
 	@Bean
 	public Job job(JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory,
-			ItemReader<TripDetails> itemReader, ItemProcessor<TripDetails, TripDetails> itemProcessor,
-			ItemWriter<TripDetails> itemWriter) {
+			ItemReader<Passengers> itemReader, ItemProcessor<Passengers, Passengers> itemProcessor,
+			ItemWriter<Passengers> itemWriter) {
 
-		Step step = stepBuilderFactory.get("json-file-load").<TripDetails, TripDetails>chunk(1).faultTolerant()
+		Step step = stepBuilderFactory.get("json-file-load").<Passengers, Passengers>chunk(1).faultTolerant()
 				.skip(RuntimeException.class)
 				.skipLimit(20)
 				.reader(itemReader)
@@ -36,9 +36,9 @@ public class SpringBatchConfig {
 	}
 
 	@Bean
-	public JsonItemReader<TripDetails> jsonItemReader() {
-		return new JsonItemReaderBuilder<TripDetails>()
-				.jsonObjectReader(new JacksonJsonObjectReader<>(TripDetails.class))
+	public JsonItemReader<Passengers> jsonItemReader() {
+		return new JsonItemReaderBuilder<Passengers>()
+				.jsonObjectReader(new JacksonJsonObjectReader<>(Passengers.class))
 				.resource(new ClassPathResource("sample.json")).name("sampleJsonItemReader").build();
 	}
 

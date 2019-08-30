@@ -1,128 +1,36 @@
 [
 	{
-		"terminal": "4",
-		"gateNumber": "20",
-		"flightNumber": "002",
-		"carrierCode": "SQ",
-		"passengers": [
+		"passengerRefId": "XXXXXX",
+		"metaData": "metaData-01",
+		"flightPassengerSegment": [
 			{
-				"passengerRefId": "XXXXXX",
-				"metaData": "metaData-01",
-				"flightPassengerSegment": [
-					{
-						"flightNumber": "002",
-						"carrierCode": "SQ",
-						"boardPoint": "SINGAPORE",
-						"offPoint": "SFO",
-						"departureUTC": "06-Aug-2019 18:30",
-						"arrivalUTC": "06-Aug-2019 21:15"
-					},
-					{
-						"terminal": "3",
-						"gateNumber": "20",
-						"flightNumber": "002",
-						"carrierCode": "SQ",
-						"carrierName": "SINGPORE AIRLINE",
-						"boardPoint": "SINGAPORE",
-						"arrivalPlace": "SFO",
-						"departureUTC": "06-Aug-2019 18:30",
-						"arrivalUTC": "06-Aug-2019 21:15"
-					}
-				]
+				"flightNumber": "002",
+				"carrierCode": "SQ",
+				"boardPoint": "SINGAPORE",
+				"offPoint": "SFO",
+				"departureUTC": "06-Aug-2019 18:30",
+				"arrivalUTC": "06-Aug-2019 21:15"
 			},
 			{
-				"passengerRefId": "YYYY",
-				"metaData": "metaData-02",
-				"flightPassengerSegment": []
-			},
-			{
-				"passengerRefId": "ZZZZZ",
-				"metaData": "metaData-03",
-				"flightPassengerSegment": []
+				"terminal": "3",
+				"gateNumber": "20",
+				"flightNumber": "002",
+				"carrierCode": "SQ",
+				"carrierName": "SINGPORE AIRLINE",
+				"boardPoint": "SINGAPORE",
+				"arrivalPlace": "SFO",
+				"departureUTC": "06-Aug-2019 18:30",
+				"arrivalUTC": "06-Aug-2019 21:15"
 			}
 		]
 	},
 	{
-		"terminal": "3",
-		"gateNumber": "20",
-		"flightNumber": "002",
-		"carrierCode": "SQ",
-		"passengers": [
-			{
-				"passengerRefId": "XXXXXX",
-				"metaData": "metaData-01",
-				"flightPassengerSegment": [
-					{
-						"flightNumber": "002",
-						"carrierCode": "SQ",
-						"boardPoint": "SINGAPORE",
-						"offPoint": "SFO",
-						"departureUTC": "06-Aug-2019 18:30",
-						"arrivalUTC": "06-Aug-2019 21:15"
-					},
-					{
-						"terminal": "3",
-						"gateNumber": "20",
-						"flightNumber": "002",
-						"carrierCode": "SQ",
-						"carrierName": "SINGPORE AIRLINE",
-						"boardPoint": "SINGAPORE",
-						"arrivalPlace": "SFO",
-						"departureUTC": "06-Aug-2019 18:30",
-						"arrivalUTC": "06-Aug-2019 21:15"
-					}
-				]
-			},
-			{
-				"passengerRefId": "YYYY",
-				"metaData": "metaData-02",
-				"flightPassengerSegment": [
-					{
-						"flightNumber": "002",
-						"carrierCode": "SQ",
-						"boardPoint": "SINGAPORE",
-						"offPoint": "SFO",
-						"departureUTC": "06-Aug-2019 18:30",
-						"arrivalUTC": "06-Aug-2019 21:15"
-					},
-					{
-						"terminal": "3",
-						"gateNumber": "20",
-						"flightNumber": "002",
-						"carrierCode": "SQ",
-						"carrierName": "SINGPORE AIRLINE",
-						"boardPoint": "SINGAPORE",
-						"arrivalPlace": "SFO",
-						"departureUTC": "06-Aug-2019 18:30",
-						"arrivalUTC": "06-Aug-2019 21:15"
-					}
-				]
-			},
-			{
-				"passengerRefId": "ZZZZZ",
-				"metaData": "metaData-03",
-				"flightPassengerSegment": [
-					{
-						"flightNumber": "002",
-						"carrierCode": "SQ",
-						"boardPoint": "SINGAPORE",
-						"offPoint": "SFO",
-						"departureUTC": "06-Aug-2019 18:30",
-						"arrivalUTC": "06-Aug-2019 21:15"
-					},
-					{
-						"terminal": "3",
-						"gateNumber": "20",
-						"flightNumber": "002",
-						"carrierCode": "SQ",
-						"carrierName": "SINGPORE AIRLINE",
-						"boardPoint": "SINGAPORE",
-						"arrivalPlace": "SFO",
-						"departureUTC": "06-Aug-2019 18:30",
-						"arrivalUTC": "06-Aug-2019 21:15"
-					}
-				]
-			}
-		]
+		"passengerRefId": "YYYY",
+		"metaData": "metaData-02",
+		"flightPassengerSegment": []
+	},
+	{
+		"passengerRefId": "ZZZZZ",
+		"metaData": "metaData-03"
 	}
 ]
